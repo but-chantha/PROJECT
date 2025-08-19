@@ -284,8 +284,169 @@
       "watering": "Every 2 weeks",
       "appearance": "Glossy, dark green oval leaves on upright stems.",
       "availabilityStatus":"instock"
-
+   },
+   {
+      "id": 23,
+      "price": 3.0,
+      "name": "Boat Orchid",
+      "type": "Orchid",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/Orchid/Boat-orchid.png",
+      "origins": "Asia",
+      "benefit": "Popular for its vibrant flowers and elegance.",
+      "watering": "Keep soil moist but not soggy.",
+      "appearance": "Long leaves with boat-shaped, colorful blooms.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 24,
+      "price": 3.2,
+      "name": "Dark Purple Orchid",
+      "type": "Orchid",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/Orchid/Dark-Purple-Orchid.png",
+      "origins": "Tropical regions",
+      "benefit": "Striking dark purple flowers for decoration.",
+      "watering": "Water once a week.",
+      "appearance": "Deep purple petals with exotic structure.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 25,
+      "price": 3.5,
+      "name": "Sunset Orchid",
+      "type": "Orchid",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/Orchid/sunset-orchid.png",
+      "origins": "Hybrid varieties",
+      "benefit": "Bright, sunset-colored flowers bring warmth indoors.",
+      "watering": "Water moderately, avoid root rot.",
+      "appearance": "Petals with orange-yellow gradient shades.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 26,
+      "price": 4.0,
+      "name": "The Sill Aglaonema Wishes",
+      "type": "Aglaonema",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/The-Sill-Aglaonema-Wishes.png",
+      "origins": "Southeast Asia",
+      "benefit": "Air-purifying and resilient, adds color indoors.",
+      "watering": "Water every 1–2 weeks.",
+      "appearance": "Pink and green variegated leaves.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 27,
+      "price": 4.2,
+      "name": "The Sill Red Anthurium",
+      "type": "Anthurium",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/The-Sill-Red-Anthurium.png",
+      "origins": "Central & South America",
+      "benefit": "Known as the ‘flamingo flower’, adds tropical beauty.",
+      "watering": "Keep soil consistently moist.",
+      "appearance": "Bright red spathes with glossy green leaves.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 28,
+      "price": 3.8,
+      "name": "Baby Rubber Plant",
+      "type": "Peperomia",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Baby-Rubber-Plant.png",
+      "origins": "South America",
+      "benefit": "Compact and easy to care for; great desk plant.",
+      "watering": "Water every 1–2 weeks.",
+      "appearance": "Thick, glossy green leaves with a bushy form.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 29,
+      "price": 4.2,
+      "name": "Benjamina Ficus",
+      "type": "Ficus",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Benjamina-Ficus.png",
+      "origins": "Asia & Australia",
+      "benefit": "Air-purifying and elegant, often used indoors.",
+      "watering": "Water weekly; prefers consistent moisture.",
+      "appearance": "Slender branches with small, oval leaves.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 30,
+      "price": 3.5,
+      "name": "Bird's Nest Fern",
+      "type": "Fern",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Bird's-Nest-Fern.png",
+      "origins": "Southeast Asia",
+      "benefit": "Adds a tropical look; helps filter air.",
+      "watering": "Keep soil consistently moist.",
+      "appearance": "Large, wavy green fronds radiating from a center.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 31,
+      "price": 4.0,
+      "name": "Bromeliad",
+      "type": "Bromeliaceae",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Bromeliad.png",
+      "origins": "Tropical Americas",
+      "benefit": "Unique colorful flowers; low maintenance.",
+      "watering": "Water into central cup; refresh weekly.",
+      "appearance": "Bright rosette of leaves with a central bloom.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 32,
+      "price": 3.6,
+      "name": "Pothos N’joy",
+      "type": "Epipremnum",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Pothos-N'joy.png",
+      "origins": "Solomon Islands",
+      "benefit": "Excellent air purifier; easy to propagate.",
+      "watering": "Water every 1–2 weeks; tolerate neglect.",
+      "appearance": "Trailing vine with green and white variegated leaves.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 33,
+      "price": 3.9,
+      "name": "Stem Lucky Bamboo",
+      "type": "Dracaena",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Stem-Lucky-Bamboo.png",
+      "origins": "Africa (commonly grown in Asia)",
+      "benefit": "Symbol of luck and prosperity.",
+      "watering": "Keep roots in water or soil consistently moist.",
+      "appearance": "Green upright stalks with lance-shaped leaves.",
+      "availabilityStatus": "instock"
+   },
+   {
+      "id": 34,
+      "price": 4.3,
+      "name": "Zebra Plant",
+      "type": "Aphelandra",
+      "decorate": "indoorPlant",
+      "image": "./assets/image/indoorPlant/The-Sill/Zebra-Plant.png",
+      "origins": "Brazil",
+      "benefit": "Eye-catching foliage; adds exotic flair indoors.",
+      "watering": "Keep soil moist but not soggy.",
+      "appearance": "Dark green leaves with striking white veins.",
+      "availabilityStatus": "instock"
    }
+]
+
+
+
+   
    
 
-]
+   
+
