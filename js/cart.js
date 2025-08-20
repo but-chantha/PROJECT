@@ -1,44 +1,15 @@
-fetch("./data/apiPlants.json")
-  .then(res => res.json())
-  .then(data => {
-   let cart = [];
+// Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-   // function to render cart
-   function renderCart() {
-   let cartItems = document.getElementById("cartItems");
-   let cartTotal = document.getElementById("cartTotal");
+    let checkoutItems = document.getElementById("checkoutItems");
+    let checkoutTotal = document.getElementById("checkoutTotal");
 
-   cartItems.innerHTML = "";
-   let total = 0;
-
-   cart.forEach((item, index) => {
-      total += item.price;
-
-      cartItems.innerHTML += `
-         <li class="list-group-item d-flex justify-content-between align-items-center">
-         ${item.name} - $${item.price}
-         <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">❌</button>
-         </li>
+    let total = 0;
+    cart.forEach(item => {
+      total += parseFloat(item.price);
+      checkoutItems.innerHTML += `
+        <li class="list-group-item">${item.name} - $${item.price}</li>
       `;
-   });
+    });
 
-   cartTotal.textContent = total.toFixed(2);
-   }
-
-   // function to add plant
-   function addToCart(plant) {
-   cart.push(plant);
-   renderCart();
-   }
-
-   // function to remove plant
-   function removeFromCart(index) 
-   {
-      cart.splice(index, 1);
-      renderCart();
-   }
-   
-   })
-  
-
-.catch(err => console.error("Error loading JSON:", err));
+    checkoutTotal.textContent = total.toFixed(2);
