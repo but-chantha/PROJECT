@@ -1,36 +1,62 @@
-fetch("./data/apiPlants.json")   // ✅ correct relative path
+fetch("./data/apiPlants.json")
   .then(res => res.json())
   .then(data => {
     let contents = document.getElementById("contents");
-    let output = "";
+    let searchInput = document.getElementById("searchInput");
 
-    data.forEach(val => {
-      output += `
-        <div class="col-md-4 mb-5">
-          
-          <div class="card h-100 shadow-sm m-auto">
-              <div class="d-flex justify-content-between align-items-center">
-              <h5><span class="badge text-bg-success text-center">${val.decorate}</span></h2>
-              <h5><span class="badge bg-danger">$ ${val.price}</span></h5>
-            </div>
-            <img src="${val.image}" class="card-img-top " alt>
-            
-            <div class="card-body bg-secondary-subtle">
-              <h5 class="card-title text-decoration-underline">${val.name}</h5>
-              <p class="card-text">
-                <strong>Type:</strong> ${val.type} <br>
-                <strong>Origin:</strong> ${val.origins} <br>
-              </p>
-            </div>
-            <div class="card-footer text-center bg-white">            
-              <span class="btn btn-success">🌱 Add to Cart</span>
+    // function to render plants
+    function renderPlants(plants) {
+      let output = "";
+      plants.forEach(val => {
+        output += `
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm m-auto">
+              
+              <div class="d-flex justify-content-between align-items-center p-2">
+                <h5><span class="badge text-bg-success text-center">${val.decorate}</span></h5>
+                <h5><span class="badge bg-danger">$ ${val.price}</span></h5>
+              </div>
+
+              <img src="${val.image}" class="card-img-top" alt="${val.name}">
+
+              <div class="card-body bg-secondary-subtle">
+                <h5 class="card-title text-decoration-underline">${val.name}</h5>
+                <p class="card-text">
+                  <strong>Type:</strong> ${val.type} <br>
+                  <strong>Origin:</strong> ${val.origins} <br>
+                </p>
+              </div>
+
+              <div class="card-footer text-center bg-white">
+                <span class="btn btn-success">🪴 Add to Cart</span>
+              </div>
             </div>
           </div>
-          
-        </div>
-      `;
-    });
+        `;
+      });
+      contents.innerHTML = output;
+    }
+    const carousel = document.getElementById("carouselExampleControlsNoTouching");
 
-    contents.innerHTML = output;
+    // initial render
+    renderPlants(data);
+
+    // search filter
+    searchInput.addEventListener("keyup", () => {
+      let query = searchInput.value.toLowerCase();
+      let filtered = data.filter(val =>
+        val.name.toLowerCase().includes(query) ||
+        val.type.toLowerCase().includes(query)
+      );
+      renderPlants(filtered);
+      
+      // Carousel disapear after search
+      if (query.trim() !== "") {
+          carousel.style.display = "none";
+        } else {
+          carousel.style.display = "block"; // show again if search is cleared
+      }
+    });
   })
-  .catch(err => console.error("Error loading JSON:", err));
+
+.catch(err => console.error("Error loading JSON:", err));
