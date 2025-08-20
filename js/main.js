@@ -1,23 +1,23 @@
 fetch("./data/apiPlants.json")
   .then(res => res.json())
   .then(data => {
-    let contents = document.getElementById("contents");
-    let searchInput = document.getElementById("searchInput");
-
+    const contents = document.getElementById("contents");
+    const searchInput = document.getElementById("searchInput");
+    const carousel = document.getElementById("carouselExampleControlsNoTouching");
     // function to render plants
-    function renderPlants(plants) {
+    const renderPlants =(plants)=> {
       let output = "";
       plants.forEach(val => {
         output += `
           <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm m-auto">
               
-              <div class="d-flex justify-content-between align-items-center p-2">
+              <div class="d-flex justify-content-between align-items-center" ">
                 <h5><span class="badge text-bg-success text-center">${val.decorate}</span></h5>
                 <h5><span class="badge bg-danger">$ ${val.price}</span></h5>
               </div>
 
-              <img src="${val.image}" class="card-img-top" alt="${val.name}">
+              <img src="${val.image}" class="card-img-top" alt="${val.id}">
 
               <div class="card-body bg-secondary-subtle">
                 <h5 class="card-title text-decoration-underline">${val.name}</h5>
@@ -28,7 +28,8 @@ fetch("./data/apiPlants.json")
               </div>
 
               <div class="card-footer text-center bg-white">
-                <span class="btn btn-success">🪴 Add to Cart</span>
+                <span class="btn btn-success" onclick='addToCart(${JSON.stringify(val)})'>
+                🪴 Add to Cart</span>
               </div>
             </div>
           </div>
@@ -36,11 +37,9 @@ fetch("./data/apiPlants.json")
       });
       contents.innerHTML = output;
     }
-    const carousel = document.getElementById("carouselExampleControlsNoTouching");
-
+    
     // initial render
     renderPlants(data);
-
     // search filter
     searchInput.addEventListener("keyup", () => {
       let query = searchInput.value.toLowerCase();
@@ -48,15 +47,17 @@ fetch("./data/apiPlants.json")
         val.name.toLowerCase().includes(query) ||
         val.type.toLowerCase().includes(query)
       );
-      renderPlants(filtered);
-      
-      // Carousel disapear after search
-      if (query.trim() !== "") {
-          carousel.style.display = "none";
-        } else {
-          carousel.style.display = "block"; // show again if search is cleared
-      }
+    renderPlants(filtered);
+
+    // Carousel disapear after search
+    if (query.trim() !== "") {
+        carousel.style.display = "none";
+      } else {
+        carousel.style.display = "block"; // show again if search is cleared
+    }
     });
+    
   })
+  
 
 .catch(err => console.error("Error loading JSON:", err));

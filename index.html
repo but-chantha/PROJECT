@@ -25,12 +25,15 @@
             <!-- Flexible Search Form -->
             <form class="d-flex flex-grow-1 mx-3" role="search">
                <input id="searchInput" class="form-control me-2" type="search" placeholder="Search your favourite plant..." aria-label="Search">
-               <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
             </form>
             <!-- Account Button -->
             <div class="gap-md-1 gap-lg-3 flex-shrink-0">
                <a class="btn btn-outline-light flex-shrink-0" href="account-signin.html" aria-label="Sign in to account"><i class="bi bi-person"></i></a>
-               <a class="btn btn-outline-light flex-shrink-0" href="#"><i class="bi bi-basket"></i></a>
+               <a id="cart" class="btn btn-outline-light flex-shrink-0" href="#">
+                  <i class="bi bi-basket"></i>
+                  <ul id="cartItems" class="list-group mb-2"></ul>
+                  <p><strong>Total:</strong> $<span id="cartTotal">0</span></p>
+               </a>
             </div>
       </nav>
       <!-- category -->
@@ -52,7 +55,7 @@
 
    <main class="">
          <!-- slideshow start-->
-      <section id="carouselExampleControlsNoTouching" class="carousel slide bg-warning-subtle" data-bs-touch="false">
+      <section id="carouselExampleControlsNoTouching" class="carousel slide bg-secondary-subtle" data-bs-touch="false">
          <div class="carousel-inner ">
             <div class="carousel-item active">
                <div class="d-flex bd-highlight align-items-center gap-lg-3">
