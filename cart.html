@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>🛒 Your Cart</h2>
+<div id="cart-items"></div>
+<p id="cart-total"></p>
+
+<script>
+  // Load cart from localStorage
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotalElement = document.getElementById("cart-total");
+
+  function renderCart() {
+    cartItemsContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+      cartTotalElement.textContent = "";
+      return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price * item.qty;
+
+      cartItemsContainer.innerHTML += `
+        <div class="cart-item" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;border-bottom:1px solid #ddd;padding:10px;">
+          <img src="${item.img}" alt="${item.name}" width="80">
+          <div style="flex:1">
+            <h3>${item.name}</h3>
+            <label>Qty: <input type="number" min="1" value="${item.qty}" onchange="updateQty(${index}, this.value)"></label>
+            <label>Price: <input type="number" min="0" step="0.1" value="${item.price}" onchange="updatePrice(${index}, this.value)"></label>
+            <p><strong>Subtotal:</strong> $${(item.price * item.qty).toFixed(2)}</p>
+          </div>
+          <button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:5px 10px;cursor:pointer;">
+            Cancel
+          </button>
+        </div>
+      `;
+    });
+
+    cartTotalElement.textContent = "Total: $" + total.toFixed(2);
+  }
+
+  // Remove item
+  function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  // Update qty
+  function updateQty(index, newQty) {
+    cart[index].qty = parseInt(newQty) || 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  // Update price
+  function updatePrice(index, newPrice) {
+    cart[index].price = parseFloat(newPrice) || 0;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  // Initial render
+  renderCart();
+</script>
+
+</body>
+</html>

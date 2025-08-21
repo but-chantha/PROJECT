@@ -55,7 +55,18 @@ fetch("./data/apiPlants.json")
       } else {
         carousel.style.display = "block"; // show again if search is cleared
     }
+
     });
+
+    function addToCart(plant) {
+      // Default quantity = 1
+      plant.qty = 1;
+
+      cart.push(plant);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      cartCountElement.textContent = cart.length;
+   }
+    
   })
   
 

@@ -7,6 +7,8 @@ document.getElementById("signinForm").addEventListener("submit", function(event)
       const password = document.getElementById("password").value;
       const address = document.getElementById("address").value;
 
-      // Show received data
-      console.log("User-Name:",userName,"Email:", email, "Password:", password,"Address:",address);
+      console.log("User-Name: ",userName,"Email:", email, "Password:", password,"Address:",address);
+
+
+      alert("Hell0 " + userName + ", Welcome to our store!!");
 });
