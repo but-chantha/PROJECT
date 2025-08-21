@@ -58,16 +58,8 @@ fetch("./data/apiPlants.json")
 
     });
 
-    function addToCart(plant) {
-      // Default quantity = 1
-      plant.qty = 1;
 
-      cart.push(plant);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      cartCountElement.textContent = cart.length;
-   }
     
-  })
-  
+  }) 
 
 .catch(err => console.error("Error loading JSON:", err));
